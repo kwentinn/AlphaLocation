@@ -1,0 +1,19 @@
+﻿@using AlphaLocation.Document.Shared.RentalAgreements
+@inherits RazorLight.TemplatePage<RentalClient>
+
+<p>
+	<span>@Model.Firstname</span>&nbsp;<span>@Model.Lastname</span>,
+	@if (Model.Gender == Gender.Male)
+	{
+		<span>né le</span>
+	}
+	else
+	{
+		<span>née le</span>
+	}
+	&nbsp;<span>@Model.BirthInfo.BirthDate.ToString("dd/MM/yyyy")</span>
+	&nbsp;&agrave;&nbsp;
+	<span>@Model.BirthInfo.BirthPlace.City (@Model.BirthInfo.BirthPlace.Departement)</span>
+</p>
+
+@{ await IncludeAsync("Templates/Address.cshtml", Model.Address); }

@@ -1,0 +1,24 @@
+﻿@using AgicapAppCore.Cqrs.Queries.RecuPaiements.Administration.GetPaymentReceiptById
+@using AgicapAppCore.Pdf.Templates.Data
+@inherits RazorLight.TemplatePage<LocalizedModel<PaymentReceipt>>
+@{
+    PaymentReceipt paymentReceipt = Model.Model;
+}
+<div class="row">
+    <div class="col-xs-12">
+        <p class="text-bas">
+            <span>
+                <!-- SAS Agicap au capital social de XXX €, RCS Lyon 823 248 703 -->
+                @Model.GetTranslation("Templates.PaymentReceipt.FooterAgicapSAS", paymentReceipt.CapitalSocial)
+                <br /> @Model.GetTranslation("Templates.PaymentReceipt.FooterAgicapSirenNumber") @*SIREN 823 248 703*@
+                <br /> @Model.GetTranslation("Templates.PaymentReceipt.FooterAgicapTvaIntracommunautaire")  <!--N° TVA intracommunautaire FR 21 823 248 703-->
+            </span>
+            <br />
+            <span class="smaller">
+                @Model.GetTranslation("Templates.PaymentReceipt.FooterPaymentCondition")
+                <br /> @Model.GetTranslation("Templates.PaymentReceipt.FooterDeductionParagraph")
+                <br /> @Model.GetTranslation("Templates.PaymentReceipt.FooterLatePaymentParagraph")
+            </span>
+        </p>
+    </div>
+</div>

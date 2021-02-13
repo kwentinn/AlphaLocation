@@ -1,0 +1,21 @@
+﻿@using AlphaLocation.Document.Shared.RentalAgreements
+@inherits RazorLight.TemplatePage<Address>
+
+<p>@Model.Line1</p>
+
+@if (!string.IsNullOrWhiteSpace(Model.Line2))
+{
+	<p>@Model.Line2</p>
+}
+
+@if (!string.IsNullOrWhiteSpace(Model.Line3))
+{
+	<p>@Model.Line3</p>
+}
+
+<p>@Model.ZipCode @Model.City</p>
+
+@if (!string.IsNullOrWhiteSpace(Model.Country))
+{
+	<p>@Model.Country</p>
+}

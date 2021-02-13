@@ -1,0 +1,6 @@
+﻿@using AlphaLocation.Document.Shared.RentalAgreements
+@inherits RazorLight.TemplatePage<Landlord>
+
+<p>@Model.CompanyName (N°SIRET: @Model.CompanyIdentificationNumber)</p>
+
+@{ await IncludeAsync("Templates/Address.cshtml", Model.Address); }

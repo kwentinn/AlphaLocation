@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net5.0</TargetFramework>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Footballista.Cqrs\Footballista.Cqrs.csproj" />
+		<ProjectReference Include="..\Footballista.Game.App\Footballista.Game.App.csproj" />
+	</ItemGroup>
+
+</Project>

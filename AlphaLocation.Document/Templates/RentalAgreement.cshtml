@@ -1,0 +1,223 @@
+﻿@using AlphaLocation.Document.Shared.RentalAgreements
+@inherits RazorLight.TemplatePage<RentalAgreement>
+@{
+	const string dateFormat = "dd/MM/yyyy";
+	string FormatAmount(decimal amount)
+	{
+		return amount.ToString("F2");
+	}
+	string FormatDate(UnixEpochTimestampDate timestamp)
+	{
+		return timestamp.UtcDate.ToString(dateFormat);
+	}
+	string GetRentalAmount(RentalAgreement model)
+	{
+		decimal total = model.Rental.PricePerNight.Value * Convert.ToDecimal(model.Rental.Period.NumberOfNights);
+		string amount = FormatAmount(total);
+		return $"{amount} {model.Rental.PricePerNight.Currency}";
+	}
+	string GetTaxeDeSejourTotal(RentalAgreement model)
+	{
+		var amount = FormatAmount(model.Rental.JourneyTaxPricePerPerson.Value * Convert.ToDecimal(model.Rental.Period.NumberOfNights));
+		return $"{amount} {model.Rental.JourneyTaxPricePerPerson.Currency}";
+	}
+	string GetTaxeDeSejourPerNightAndPerPerson(RentalAgreement model)
+	{
+		var amount = FormatAmount(model.Rental.JourneyTaxPricePerPerson.Value);
+		return $"{amount} {model.Rental.JourneyTaxPricePerPerson.Currency}";
+	}
+}
+<html>
+<head>
+	@{
+		//await IncludeAsync("Templates/Shared/_BootstrapStyles.cshtml");
+		await IncludeAsync("Templates/Shared/_CustomStyles.cshtml");
+	}
+</head>
+<body class="body">
+
+	<div class="container-print-zone">
+		<!-- include header -->
+		@*@{ await IncludeAsync("Templates/Shared/_Header.cshtml", Model); }*@
+
+		<!-- main content -->
+
+
+		<h1 class="title-case">Contrat de location saisonniere</h1>
+
+		<h2>Entre les soussignés</h2>
+		@*@{ await IncludeAsync("Templates/Landlord.cshtml", Model.Landlord); }*@
+		<div class="container-parties">
+			<p>M. Quentin VILLEVIEILLE, né le 18/10/1982 à MONTPELLIER (34)</p>
+			<p>et Mme Alice CROVILLE, née le 04/06/1986 à DECINES (69)</p>
+			<p>demeurant 5B, rue François Périer 34070 MONTPELLIER</p>
+		</div>
+		<p>désignés ci-après le bailleur</p>
+
+		<p>et</p>
+
+		<div class="container-parties">
+			@{ await IncludeAsync("Templates/RentalClient.cshtml", Model.RentalClient); }
+		</div>
+		<p>désigné ci-après le locataire</p>
+
+		<p>il est convenu d'une location meublée dont la désignation suit :</p>
+
+		<p>Adresse du logement donné en location :</p>
+		<div class="container-parties">
+			<p>Résidence L’AMAREL apt 37</p>
+			<p>147, av. GRASSION CIBRAND</p>
+			<p>CARNON-PLAGE</p>
+			<p>34130 MAUGUIO</p>
+			<p>2ème étage</p>
+			<p>Superficie 52m²</p>
+		</div>
+		<br>
+
+		<h2>Type du logement donné en location</h2>
+		<p>Appartement</p>
+		<br>
+
+		<h2>Dépendances dont le locataire a la jouissance exclusive</h2>
+		<p>Parking privé</p>
+		<br>
+
+		<h2>Désignation des locaux et équipements privatifs</h2>
+		<ul>
+			<li>1 chambre avec un lit double placard intégré et commode,</li>
+			<li>1 chambre avec un lit gigogne et rangement type secrétaire,</li>
+			<li>1 salle de bain avec baignoire,</li>
+			<li>1 WC séparé,</li>
+			<li>1 pièce principale avec espace cuisine équipée,</li>
+			<li>espace salle à manger avec table extensible,</li>
+			<li>espace salon avec canapé convertible,</li>
+			<li>table basse et meuble TV,</li>
+			<li>1 loggia côté mer avec salon de jardin,</li>
+			<li>1 terrasse côté étang avec table d’extérieur.</li>
+		</ul>
+		<br>
+
+		<h2>Enumération des parties et équipements communs</h2>
+		<p>L’arrivée dans l’appartement se fait par l’entrée commune et l’escalier commun.</p>
+		<p>1 petit local à vélo partagé.</p>
+		<br>
+		
+		<h2>Etat des lieux contradictoire</h2>
+		<p>L'état des lieux a fait l'objet d'un document dressé en autant d'exemplaires qu'il y a de parties soit 2 exemplaires. Il est annexé au présent contrat.</p>
+		<br>
+		<h3>Sanitaires</h3>
+		<ul>
+			<li>Lavabo(s)</li>
+			<li>WC</li>
+			<li>Douche(s)</li>
+			<li>Baignoire</li>
+			<li>Evier un bac</li>
+			<li>sèche-cheveux</li>
+		</ul>
+
+		<br>
+		<h3>Electroménager :</h3>
+		<ul>
+			<li>Réfrigérateur/Congélateur</li>
+			<li>Plaque cuisson</li>
+			<li>Four</li>
+			<li>Lave-vaisselle</li>
+			<li>Lave-linge</li>
+			<li>Lecteur DVD</li>
+			<li>Télévision</li>
+			<li>Aspirateur</li>
+		</ul>
+		<br>
+		<h3>Mobilier</h3>
+		<ul>
+			<li>1 lit double</li>
+			<li>1 lit gigogne</li>
+			<li>1 lit-parapluie avec 1 matelas</li>
+			<li>1 commode</li>
+			<li>1 secrétaire</li>
+			<li>1 canapé convertible</li>
+			<li>1 table ronde extensible et 4 chaises + 2 chaises pliantes</li>
+			<li>1 table basse</li>
+			<li>1 meuble TV</li>
+			<li>1 desserte (cuisine)</li>
+			<li>1 console</li>
+			<li>1 lampadaire</li>
+			<li>1 salon de jardin avec table basse</li>
+			<li>1 canapé et 2 fauteuils</li>
+			<li>1 table d’extérieur avec 4 chaises et 2 fauteuils</li>
+			<li>1 desserte (terrasse)</li>
+			<li>3 patères (1 dans chaque chambre et 1 dans la salle de bains)
+		</ul>
+		<br>
+
+		<h3>Linge</h3>
+		<ul>
+			<li>Drap(s)</li>
+			<li>Couverture(s)</li>
+			<li>1 serviette de toilette par personne</li>
+			<li>2 torchons à vaisselle</li>
+			<li>2 serviettes à mains dans la salle de bain</li>
+			<li>1 tapis de bain</li>
+		</ul>
+
+		<br>
+		<h3>Vaisselle</h3>
+		<p>La vaisselle et les ustensiles sont suffisants pour 4 à 6 personnes.</p>
+		<br>
+
+		<h3>Réseaux</h3>
+		<ul>
+			<li>Eau froide</li>
+			<li>Eau chaude</li>
+			<li>Chauffage électrique</li>
+			<li>WIFI</li>
+		</ul>
+		<br>
+		
+		<h2>Inventaire contradictoire</h2>
+		<p>La présente location étant consentie et acceptée en meublé, un inventaire contradictoire des meubles sera établi lors de la remise des clés au locataire et lors de la restitution de celles-ci. L'inventaire sera annexé au présent contrat. Le preneur sera responsable de toute détérioration ou perte pouvant survenir à ce mobilier.</p>
+		<br>
+		
+		<h2>Durée de la location</h2>
+		<p>La présente location est consentie et acceptée pour une durée de : DEUX NUITS qui commence à courir le : VINGT-TROIS OCTOBRE DEUX-MILLE-VINGT. En aucun cas elle ne pourra être prorogée, sauf accord préalable et écrit du bailleur.</p>
+		<p>Pour la prise de possession des lieux et les formalités d’usage (état des lieux, inventaire, remise des clés, paiement des sommes prévues à cette date), il est d’ores et déjà convenu d’un rendez-vous le 23/10/2020 à ....................heures.</p>
+		<br>
+		
+		<h2>Loyer / charges</h2>
+		<p>La présente location est consentie et acceptée  moyennant @GetRentalAmount(Model), charges comprises, à l’exclusion de la taxe de séjour, d’un montant de @GetTaxeDeSejourPerNightAndPerPerson(Model) par personne majeure et par nuit, soit @GetTaxeDeSejourTotal(Model).</p>
+		<br>
+
+		<h2>Dépôt de garantie</h2>
+		<p>A titre de garantie et en cautionnement des dégâts qui pourraient être causés au local ou bien au mobilier et/ou aux objets garnissant les lieux, le locataire versera, le jour de l’entrée dans les lieux, la somme de : HUIT CENTS EUROS.</p>
+		<p>Cette somme, non productive d’intérêts, sera restituée dès la preuve faite par le locataire que : - l’ensemble des consommations qu’il devait acquitter et dont la liste figure au paragraphe précédent a bien été intégralement acquitté ; - aucun meuble, objet ou linge n’est absent, dégradé ni sali, ou bien, si tel est le cas, sa remise en état ou son remplacement par l’identique est convenu avec le bailleur qui l’a accepté ;</p>
+		<p>- les lieux n’ont subi aucune dégradation et sont remis en état propre (placards, poubelles et réfrigérateurs vides de déchets, sanitaires, appareils électroménagers, vaisselle, etc ...). Si ce cautionnement s’avérait insuffisant, le locataire s’engage d’ores et déjà à en parfaire la somme.</p>
+		<br>
+		
+
+		<h2>Echéancier de paiement</h2>
+		<p>Le jour de la signature des présentes, il est versé par le locataire la somme de 90 euros constituant des arrhes et venant en déduction de la somme totale à payer.</p>
+		<p>Le jour de la prise de possession des lieux, le locataire s’oblige à verser, en complément des arrhes : - Dépôt de garantie, soit la somme de 800 euros (non encaissée) – Reste du loyer plus taxe de séjour : 96,44 euros.</p>
+		<br>
+		<p>En annexe du présent contrat, les parties reconnaissent avoir remis ou reçu (cocher pour les documents reçus) :</p>
+		<p>o Un état des lieux dressé lors de la remise des clés</p>
+		<p>o Un inventaire des meubles</p>
+		<br>
+		
+		<h2>Nettoyage après séjour</h2>
+		<p>Vous êtes engagés à remettre la location en état propre et rangé à la fin de votre séjour.</p>
+		<br>
+		<p>Election de domicile</p>
+		<p>Pour l'exécution des présentes et de leur suite, le bailleur fait élection de domicile en sa demeure et le locataire dans les lieux loués.</p>
+		<p>Fait à MONTPELLIER, le @{ FormatDate(Model.GenerationDate); }, en 2 originaux dont un remis au(x) locataire(s).</p>
+		<br>
+		<p>Le(s) locataires(s) 						Le(s) bailleur(s)</p>
+		<br />
+		<p>(Faire précéder chaque signature de la mention manuscrite: "Lu et approuvé, bon pour accord").</p>
+
+
+		<!-- include footer -->
+		@*@{ await IncludeAsync("Templates/Sharedl/_Footer.cshtml", Model); }*@
+	</div>
+</body>
+
+</html>

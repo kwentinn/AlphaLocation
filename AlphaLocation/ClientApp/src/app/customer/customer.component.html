@@ -1,0 +1,31 @@
+<h1>Fiche client</h1>
+
+<!-- TODO : afficher un formulaire pour saisir infos de base : nom prénom sexe commentaire -->
+<div class="container">
+    <mat-form-field appearance="fill">
+        <mat-label>Nom</mat-label>
+        <input matInput>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Prénom</mat-label>
+        <input matInput>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Civilité</mat-label>
+        <mat-select>
+            <mat-option value="1">Madame</mat-option>
+            <mat-option value="2">Monsieur</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Commentaires</mat-label>
+        <textarea matInput></textarea>
+    </mat-form-field>
+</div>
+
+<div>
+    <app-customers-table [customers]="customers"></app-customers-table>
+</div>

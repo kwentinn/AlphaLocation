@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net5.0</TargetFramework>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\AlphaLocation.Cqrs\AlphaLocation.Cqrs.csproj" />
+	  <ProjectReference Include="..\AlphaLocation.Customer.Domain\AlphaLocation.Customer.Domain.csproj" />
+	  <ProjectReference Include="..\AlphaLocation.Infra\AlphaLocation.Customer.Infra.csproj" />
+	</ItemGroup>
+
+</Project>
