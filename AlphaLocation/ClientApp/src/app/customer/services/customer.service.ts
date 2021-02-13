@@ -1,8 +1,9 @@
 import { HttpClient } from "@angular/common/http";
-import { Inject } from "@angular/core";
+import { Inject, Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { Customer } from "../customers-table/customer.model";
 
+@Injectable()
 export class CustomerService {
 
     constructor(

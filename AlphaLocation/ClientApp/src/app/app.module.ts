@@ -3,14 +3,6 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-
-import { AppComponent } from './app.component';
-import { NavMenuComponent } from './nav-menu/nav-menu.component';
-import { HomeComponent } from './home/home.component';
-import { CounterComponent } from './counter/counter.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CustomerComponent } from './customer/customer.component';
-
 import {
   MatToolbarModule,
   MatSlideToggleModule,
@@ -22,6 +14,12 @@ import {
   MatSelectModule,
   MatTableModule
 } from '@angular/material';
+
+import { AppComponent } from './app.component';
+import { NavMenuComponent } from './nav-menu/nav-menu.component';
+import { HomeComponent } from './home/home.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CustomerComponent } from './customer/customer.component';
 import { CustomersTableComponent } from './customer/customers-table/customers-table.component';
 import { CustomerService } from './customer/services/customer.service';
 
@@ -30,7 +28,6 @@ import { CustomerService } from './customer/services/customer.service';
     AppComponent,
     NavMenuComponent,
     HomeComponent,
-    CounterComponent,
     CustomerComponent,
     CustomersTableComponent
   ],
@@ -49,7 +46,6 @@ import { CustomerService } from './customer/services/customer.service';
     MatTableModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'counter', component: CounterComponent },
       { path: 'customer', component: CustomerComponent },
     ]),
     BrowserAnimationsModule
