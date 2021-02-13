@@ -45,9 +45,9 @@ import { CustomerService } from './customer/services/customer.service';
     MatSelectModule,  
     MatTableModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'customer', component: CustomerComponent },
-    ]),
+    { path: '', component: HomeComponent, pathMatch: 'full' },
+    { path: 'customer', component: CustomerComponent },
+], { relativeLinkResolution: 'legacy' }),
     BrowserAnimationsModule
   ],
   providers: [CustomerService],
