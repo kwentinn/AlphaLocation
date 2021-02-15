@@ -1,0 +1,18 @@
+{
+  "customers": [
+    {
+      "id": "0",
+      "firstname": "José",
+      "lastname": "Dugrand",
+      "gender": 0,
+      "birthdate": "1980-10-10T00:00:00"
+    },
+    {
+      "id": "1",
+      "firstname": "Josette",
+      "lastname": "Dugeneou",
+      "gender": 0,
+      "birthdate": "1952-10-10T00:00:00"
+    }
+  ]
+}

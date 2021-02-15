@@ -1,13 +1,13 @@
 ﻿using System;
 
-namespace AlphaLocation.Customer.Infra
+namespace AlphaLocation.Customers.Infra
 {
-	internal class CustomerInfra
-	{
-		public Guid Id { get; set; }
-		public string Firstname { get; set; }
-		public string Lastname { get; set; }
-		public int Gender { get; set; }
-		public int Birthdate { get; set; }
-	}
+    public class CustomerInfra
+    {
+        public string Id { get; set; }
+        public string Firstname { get; set; }
+        public string Lastname { get; set; }
+        public int Gender { get; set; }
+        public DateTime Birthdate { get; set; }
+    }
 }

@@ -6,8 +6,8 @@
 
 	<ItemGroup>
 	  <ProjectReference Include="..\AlphaLocation.Cqrs\AlphaLocation.Cqrs.csproj" />
-	  <ProjectReference Include="..\AlphaLocation.Customer.Domain\AlphaLocation.Customer.Domain.csproj" />
-	  <ProjectReference Include="..\AlphaLocation.Infra\AlphaLocation.Customer.Infra.csproj" />
+	  <ProjectReference Include="..\AlphaLocation.Customer.Domain\AlphaLocation.Customers.Domain.csproj" />
+	  <ProjectReference Include="..\AlphaLocation.Infra\AlphaLocation.Customers.Infra.csproj" />
 	</ItemGroup>
 
 </Project>

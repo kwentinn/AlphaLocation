@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<TargetFramework>net5.0</TargetFramework>
@@ -6,7 +6,6 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\AlphaLocation.Cqrs\AlphaLocation.Cqrs.csproj" />
-		<ProjectReference Include="..\AlphaLocation.Customer.App\AlphaLocation.Customers.App.csproj" />
 	</ItemGroup>
 
 </Project>

@@ -15,17 +15,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlphaLocation.Document", "A
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Customer", "Customer", "{C3CF1715-0750-42FF-B475-B93674048CCE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlphaLocation.Customer.Domain", "AlphaLocation.Customer.Domain\AlphaLocation.Customer.Domain.csproj", "{5FEE3E1A-0471-467C-ACD8-CD130FFB9B71}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlphaLocation.Customers.Domain", "AlphaLocation.Customer.Domain\AlphaLocation.Customers.Domain.csproj", "{5FEE3E1A-0471-467C-ACD8-CD130FFB9B71}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlphaLocation.Customer.App", "AlphaLocation.Customer.App\AlphaLocation.Customer.App.csproj", "{D605E16E-36FB-4F77-AD0A-CB5B68893910}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlphaLocation.Customers.App", "AlphaLocation.Customer.App\AlphaLocation.Customers.App.csproj", "{D605E16E-36FB-4F77-AD0A-CB5B68893910}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlphaLocation.Customer.Infra", "AlphaLocation.Infra\AlphaLocation.Customer.Infra.csproj", "{DC510C09-F4DD-4804-8852-CA49BCA22418}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlphaLocation.Customers.Infra", "AlphaLocation.Infra\AlphaLocation.Customers.Infra.csproj", "{DC510C09-F4DD-4804-8852-CA49BCA22418}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BuildingBlocks", "BuildingBlocks", "{44E713F1-EAD1-4F1C-9D59-F538D6B2F635}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlphaLocation.Cqrs", "AlphaLocation.Cqrs\AlphaLocation.Cqrs.csproj", "{76A51219-14F6-4623-9AB6-59E9B6380753}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlphaLocation.Queries", "AlphaLocation.Queries\AlphaLocation.Queries.csproj", "{5BE92B4F-4D59-42E0-8684-6C6E011B570D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlphaLocation.Queries", "AlphaLocation.Queries\AlphaLocation.Queries.csproj", "{5BE92B4F-4D59-42E0-8684-6C6E011B570D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlphaLocation.Commands", "AlphaLocation.Commands\AlphaLocation.Commands.csproj", "{C0556B2E-6059-4EDE-89C3-6552027CD4AF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +71,10 @@ Global
 		{5BE92B4F-4D59-42E0-8684-6C6E011B570D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5BE92B4F-4D59-42E0-8684-6C6E011B570D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5BE92B4F-4D59-42E0-8684-6C6E011B570D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0556B2E-6059-4EDE-89C3-6552027CD4AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0556B2E-6059-4EDE-89C3-6552027CD4AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0556B2E-6059-4EDE-89C3-6552027CD4AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0556B2E-6059-4EDE-89C3-6552027CD4AF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -82,6 +88,7 @@ Global
 		{DC510C09-F4DD-4804-8852-CA49BCA22418} = {C3CF1715-0750-42FF-B475-B93674048CCE}
 		{76A51219-14F6-4623-9AB6-59E9B6380753} = {44E713F1-EAD1-4F1C-9D59-F538D6B2F635}
 		{5BE92B4F-4D59-42E0-8684-6C6E011B570D} = {44E713F1-EAD1-4F1C-9D59-F538D6B2F635}
+		{C0556B2E-6059-4EDE-89C3-6552027CD4AF} = {44E713F1-EAD1-4F1C-9D59-F538D6B2F635}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {20B8141D-FFFE-44BC-8A82-EE607520D81A}

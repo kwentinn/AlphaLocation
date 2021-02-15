@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>netstandard2.1</TargetFramework>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="JsonFlatFileDataStore" Version="2.2.2" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\AlphaLocation.Customer.Domain\AlphaLocation.Customers.Domain.csproj" />
+	</ItemGroup>
+
+</Project>

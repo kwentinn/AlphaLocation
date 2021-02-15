@@ -1,3 +1,4 @@
+using AlphaLocation.Customers.App;
 using AlphaLocation.Web.Configuration;
 using Autofac;
 using Microsoft.AspNetCore.Builder;
@@ -83,6 +84,7 @@ namespace AlphaLocation
 		public void ConfigureContainer(ContainerBuilder builder)
 		{
 			builder.RegisterModule(new CqrsModule());
+			builder.RegisterModule(new CustomersModule());
 		}
 	}
 }
