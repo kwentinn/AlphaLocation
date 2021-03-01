@@ -1,4 +1,6 @@
 ﻿using AlphaLocation.Customers.Domain;
+using AlphaLocation.Customers.Infra.Entities;
+using AlphaLocation.Customers.Infra.Stores;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -13,9 +15,9 @@ namespace AlphaLocation.Customers.Infra
             this.store = store;
         }
 
-        public async Task<Customer> GetById(CustomerId customerId)
+        public async Task<Customer> GetByIdAsync(CustomerId customerId)
         {
-            CustomerInfra customerInfra = this.store.Customers
+            CustomerEntity customerInfra = this.store.Customers
                 .Find(c => c.Id == customerId.Value)
                 .Single();
 
@@ -31,7 +33,7 @@ namespace AlphaLocation.Customers.Infra
 
         public async Task SaveAsync(Customer customer)
         {
-            await this.store.Customers.InsertOneAsync(new CustomerInfra
+            await this.store.Customers.InsertOneAsync(new CustomerEntity
             {
                 Id = customer.Id.Value,
                 Firstname = customer.Firstname.Value,

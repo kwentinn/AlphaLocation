@@ -1,12 +1,12 @@
 ﻿using AlphaLocation.Cqrs.Base.Queries;
-using AlphaLocation.Customers.Infra;
+using AlphaLocation.Customers.Infra.Stores;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace AlphaLocation.Queries.GetAllCustomers
 {
-	public class GetAllCustomersQueryHandler : QueryHandler<GetAllCustomersQuery, IEnumerable<CustomerDto>>
+    public class GetAllCustomersQueryHandler : QueryHandler<GetAllCustomersQuery, IEnumerable<CustomerDto>>
 	{
         private readonly IStore store;
 

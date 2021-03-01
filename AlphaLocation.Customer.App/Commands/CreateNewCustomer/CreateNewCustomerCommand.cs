@@ -2,7 +2,7 @@
 using AlphaLocation.Customers.Domain;
 using System;
 
-namespace AlphaLocation.Customers.App.CreateNewCustomer
+namespace AlphaLocation.Customers.App.Commands.CreateNewCustomer
 {
     public class CreateNewCustomerCommand : ICommand
     {

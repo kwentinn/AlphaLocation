@@ -2,7 +2,7 @@
 using AlphaLocation.Customers.Domain;
 using System.Threading.Tasks;
 
-namespace AlphaLocation.Customers.App.CreateNewCustomer
+namespace AlphaLocation.Customers.App.Commands.CreateNewCustomer
 {
     public class CreateNewCustomerCommandHandler : CommandHandler<CreateNewCustomerCommand>
     {
@@ -17,7 +17,7 @@ namespace AlphaLocation.Customers.App.CreateNewCustomer
         {
             Customer customer = new Customer(
                 CustomerId.Unset,
-                (Domain.Gender)command.Gender,
+                command.Gender,
                 Name.From(command.Firstname),
                 Name.From(command.Lastname),
                 Birthdate.From(command.Birthdate));

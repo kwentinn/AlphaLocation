@@ -1,7 +1,10 @@
-﻿using Autofac;
+﻿using AlphaLocation.Customers.App.Assemblies;
+using AlphaLocation.Customers.Domain.Assemblies;
+using AlphaLocation.Customers.Infra.Assemblies;
+using Autofac;
 using System.Reflection;
 
-namespace AlphaLocation.Customers.App
+namespace AlphaLocation.Customers.App.Configuration
 {
     public class CustomersModule : Autofac.Module
     {

@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 
-namespace AlphaLocation.Customers.App
+namespace AlphaLocation.Customers.Domain.Assemblies
 {
     public static class AlphaLocationCustomers_Domain
     {
