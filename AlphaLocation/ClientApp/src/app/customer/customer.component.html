@@ -1,32 +1,5 @@
 <h1>Fiche client</h1>
 
-<div class="container" fxLayout="row" fxLayoutAlign="start none">
+<button mat-button (click)="openCreateCustomerDialog()">Enregistrer un nouveau client</button>
 
-    <app-customers-table fxFill [customers]="customers"></app-customers-table>
-
-    <div fxLayout="column" fxLayoutAlign="start start">
-        <mat-form-field appearance="fill">
-            <mat-label>Nom</mat-label>
-            <input matInput>
-        </mat-form-field>
-
-        <mat-form-field appearance="fill">
-            <mat-label>Prénom</mat-label>
-            <input matInput>
-        </mat-form-field>
-
-        <mat-form-field appearance="fill">
-            <mat-label>Civilité</mat-label>
-            <mat-select>
-                <mat-option value="1">Madame</mat-option>
-                <mat-option value="2">Monsieur</mat-option>
-            </mat-select>
-        </mat-form-field>
-
-        <mat-form-field appearance="fill">
-            <mat-label>Commentaires</mat-label>
-            <textarea matInput></textarea>
-        </mat-form-field>
-    </div>
-
-</div>
+<app-customers-table [customers]="customers"></app-customers-table>

@@ -1,0 +1,31 @@
+<div fxLayout="column" fxLayoutAlign="center start">
+
+    <mat-form-field appearance="fill">
+        <mat-label>Nom</mat-label>
+        <input matInput>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Prénom</mat-label>
+        <input matInput>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Civilité</mat-label>
+        <mat-select>
+            <mat-option value="1">Madame</mat-option>
+            <mat-option value="2">Monsieur</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Commentaires</mat-label>
+        <textarea matInput></textarea>
+    </mat-form-field>
+
+    <div class="form-element">
+        <button mat-raised-button color="primary" type="submit" [disabled]="!formGroup.valid">
+            Enregistrer
+        </button>
+    </div>
+</div>

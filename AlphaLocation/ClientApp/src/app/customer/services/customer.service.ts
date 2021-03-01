@@ -1,7 +1,7 @@
-import { HttpClient } from "@angular/common/http";
-import { Inject, Injectable } from "@angular/core";
-import { Observable } from "rxjs";
-import { Customer } from "../customers-table/customer.model";
+import { HttpClient } from '@angular/common/http';
+import { Inject, Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Customer } from '../models/customer.model';
 
 @Injectable()
 export class CustomerService {
@@ -13,5 +13,9 @@ export class CustomerService {
 
     public GetCustomers(): Observable<Customer[]> {
         return this.http.get<Customer[]>(this.baseUrl + 'api/customer');
+    }
+
+    public CreateCustomer(customer: Customer): Observable<void> {
+        return this.http.post<void>(this.baseUrl + 'api/customer', customer);
     }
 }

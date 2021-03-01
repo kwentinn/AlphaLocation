@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Customer } from './customers-table/customer.model';
+import { MatDialog } from '@angular/material/dialog';
+import { Customer } from './models/customer.model';
+import { CreateCustomerDialogComponent } from './dialogs/create-customer-dialog/create-customer-dialog.component';
 import { CustomerService } from './services/customer.service';
 
 @Component({
@@ -9,8 +11,11 @@ import { CustomerService } from './services/customer.service';
 })
 export class CustomerComponent implements OnInit {
   customers: Customer[];
+  dialogRef: any;
 
-  constructor(private readonly customerService: CustomerService) { }
+  constructor(
+    private readonly customerService: CustomerService,
+    private readonly matDialog: MatDialog) { }
 
   ngOnInit() {
     this.customerService.GetCustomers()
@@ -19,5 +24,7 @@ export class CustomerComponent implements OnInit {
         (error) => console.error(error)
       );
   }
-
+  public openCreateCustomerDialog(): void {
+    this.dialogRef = this.matDialog.open(CreateCustomerDialogComponent);
+  }
 }
