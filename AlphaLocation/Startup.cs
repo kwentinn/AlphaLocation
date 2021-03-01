@@ -1,4 +1,4 @@
-using AlphaLocation.Customers.App;
+using AlphaLocation.Customers.App.Configuration;
 using AlphaLocation.Web.Configuration;
 using Autofac;
 using Microsoft.AspNetCore.Builder;
@@ -10,7 +10,7 @@ using Microsoft.Extensions.Hosting;
 
 namespace AlphaLocation
 {
-	public class Startup
+    public class Startup
 	{
 		public Startup(IConfiguration configuration)
 		{
@@ -74,8 +74,6 @@ namespace AlphaLocation
 				}
 			});
 		}
-
-
 
 		/// <summary>
 		/// Called automatically by AutoFac

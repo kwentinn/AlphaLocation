@@ -1,5 +1,5 @@
 ﻿using AlphaLocation.Cqrs;
-using AlphaLocation.Customers.App.CreateNewCustomer;
+using AlphaLocation.Customers.App.Commands.CreateNewCustomer;
 using AlphaLocation.Queries.GetAllCustomers;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AlphaLocation.Controllers
 {
-	[ApiController]
+    [ApiController]
 	[Route("api/[controller]")]
 	public class CustomerController : ControllerBase
 	{
