@@ -1,5 +1,6 @@
 ﻿using AlphaLocation.Cqrs.Base.Commands;
 using AlphaLocation.Customers.Domain;
+using System;
 using System.Threading.Tasks;
 
 namespace AlphaLocation.Customers.App.Commands.CreateNewCustomer
@@ -15,13 +16,21 @@ namespace AlphaLocation.Customers.App.Commands.CreateNewCustomer
 
         public override async Task HandleAsync(CreateNewCustomerCommand command)
         {
-            Customer customer = new Customer(
+            Customer customer = new Customer
+            (
                 CustomerId.Unset,
                 command.Gender,
                 Name.From(command.Firstname),
                 Name.From(command.Lastname),
-                Birthdate.From(command.Birthdate));
+                GetBirthdate(command),
+                command.Comment
+            );
             await this.customerRepository.SaveAsync(customer);
+        }
+
+        private static Birthdate GetBirthdate(CreateNewCustomerCommand command)
+        {
+            return !command.Birthdate.HasValue ? Birthdate.From(command.Birthdate.Value) : null;
         }
     }
 }

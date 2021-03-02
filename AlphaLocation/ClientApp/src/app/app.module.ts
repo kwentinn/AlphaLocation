@@ -12,6 +12,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatDialogModule } from '@angular/material/dialog';
 import { AppComponent } from './app.component';
@@ -23,6 +24,7 @@ import { CustomersTableComponent } from './customer/customers-table/customers-ta
 import { CustomerService } from './customer/services/customer.service';
 import { HttpErrorInterceptor } from './shared/http-error-interceptor.service';
 import { CreateCustomerDialogComponent } from './customer/dialogs/create-customer-dialog/create-customer-dialog.component';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -49,6 +51,8 @@ import { CreateCustomerDialogComponent } from './customer/dialogs/create-custome
     MatDialogModule,
     FlexLayoutModule,
     FormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -58,6 +62,7 @@ import { CreateCustomerDialogComponent } from './customer/dialogs/create-custome
   ],
   providers: [
     CustomerService,
+    MatDatepickerModule,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpErrorInterceptor,

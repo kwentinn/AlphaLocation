@@ -2,6 +2,7 @@
 using AlphaLocation.Customers.App.Commands.CreateNewCustomer;
 using AlphaLocation.Queries.GetAllCustomers;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -27,13 +28,24 @@ namespace AlphaLocation.Controllers
 		[HttpPost]
 		public async Task<IActionResult> Create([FromBody] CustomerDto customer)
         {
-			await this.mediator.DispatchAsync(new CreateNewCustomerCommand()
-			{
-				Firstname = customer.Firstname,
-				Lastname = customer.Lastname,
-				Birthdate = customer.Birthdate
-			});
-			return this.Ok();
-		}
-	}
+            await this.mediator.DispatchAsync(new CreateNewCustomerCommand()
+            {
+                Gender = (Customers.Domain.Gender)customer.Gender,
+                Firstname = customer.Firstname,
+                Lastname = customer.Lastname,
+                Birthdate = GetBirthdate(customer),
+                Comment = customer.Comment
+            });
+            return this.Ok();
+        }
+
+        private static DateTime? GetBirthdate(CustomerDto customer)
+        {
+            if (customer.Birthdate == null)
+            {
+                return null;
+            }
+            return customer.Birthdate.ToDateTime();
+        }
+    }
 }

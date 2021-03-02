@@ -17,17 +17,18 @@ namespace AlphaLocation.Customers.Infra
 
         public async Task<Customer> GetByIdAsync(CustomerId customerId)
         {
-            CustomerEntity customerInfra = this.store.Customers
+            CustomerEntity entity = this.store.Customers
                 .Find(c => c.Id == customerId.Value)
                 .Single();
 
             return await Task.FromResult(new Customer
             (
-                CustomerId.From(customerInfra.Id),
-                (Gender)customerInfra.Gender,
-                Name.From(customerInfra.Firstname),
-                Name.From(customerInfra.Lastname),
-                Birthdate.From(customerInfra.Birthdate)
+                CustomerId.From(entity.Id),
+                entity.Gender,
+                Name.From(entity.Firstname),
+                Name.From(entity.Lastname),
+                Birthdate.From(entity.Birthdate),
+                entity.Comment
             ));
         }
 
@@ -38,8 +39,9 @@ namespace AlphaLocation.Customers.Infra
                 Id = customer.Id.Value,
                 Firstname = customer.Firstname.Value,
                 Lastname = customer.Lastname.Value,
-                Gender = (int)customer.Gender,
-                Birthdate = customer.Birthdate.Value
+                Gender = customer.Gender,
+                Birthdate = customer.Birthdate.Value,
+                Comment = customer.Comment
             });
         }
     }

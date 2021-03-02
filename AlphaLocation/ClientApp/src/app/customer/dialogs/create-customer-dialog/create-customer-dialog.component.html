@@ -1,31 +1,44 @@
 <div fxLayout="column" fxLayoutAlign="center start">
 
-    <mat-form-field appearance="fill">
-        <mat-label>Nom</mat-label>
-        <input matInput>
-    </mat-form-field>
+    <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
 
-    <mat-form-field appearance="fill">
-        <mat-label>Prénom</mat-label>
-        <input matInput>
-    </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Civilité</mat-label>
+            <mat-select formControlName="gender">
+                <mat-option value="1">Madame</mat-option>
+                <mat-option value="2">Monsieur</mat-option>
+            </mat-select>
+        </mat-form-field>
 
-    <mat-form-field appearance="fill">
-        <mat-label>Civilité</mat-label>
-        <mat-select>
-            <mat-option value="1">Madame</mat-option>
-            <mat-option value="2">Monsieur</mat-option>
-        </mat-select>
-    </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Prénom</mat-label>
+            <input matInput formControlName="firstname" required>
+        </mat-form-field>
 
-    <mat-form-field appearance="fill">
-        <mat-label>Commentaires</mat-label>
-        <textarea matInput></textarea>
-    </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Nom</mat-label>
+            <input matInput formControlName="lastname" required>
+        </mat-form-field>
 
-    <div class="form-element">
-        <button mat-raised-button color="primary" type="submit" [disabled]="!formGroup.valid">
-            Enregistrer
-        </button>
-    </div>
+        <mat-form-field appearance="fill">
+            <mat-label>Commentaires</mat-label>
+            <textarea matInput formControlName="comment"></textarea>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Date de naissance</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="birthdate">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <div class="form-element">
+            <button mat-raised-button color="primary" type="submit" [disabled]="!formGroup.valid">
+                Enregistrer
+            </button>
+        </div>
+    </form>
+</div>
+
+<div>
+    {{ formGroup.value | json }}
 </div>
