@@ -1,6 +1,7 @@
 ﻿using AlphaLocation.Customers.Domain;
 using AlphaLocation.Customers.Infra.Entities;
 using AlphaLocation.Customers.Infra.Stores;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -40,9 +41,18 @@ namespace AlphaLocation.Customers.Infra
                 Firstname = customer.Firstname.Value,
                 Lastname = customer.Lastname.Value,
                 Gender = customer.Gender,
-                Birthdate = customer.Birthdate.Value,
+                Birthdate = GetBirthdate(customer),
                 Comment = customer.Comment
             });
+        }
+
+        private static DateTime? GetBirthdate(Customer customer)
+        {
+            if (customer.Birthdate == null)
+            {
+                return null;
+            }
+            return customer.Birthdate.Value;
         }
     }
 }

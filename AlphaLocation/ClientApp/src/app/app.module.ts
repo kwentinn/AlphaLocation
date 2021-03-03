@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
@@ -24,7 +24,7 @@ import { CustomersTableComponent } from './customer/customers-table/customers-ta
 import { CustomerService } from './customer/services/customer.service';
 import { HttpErrorInterceptor } from './shared/http-error-interceptor.service';
 import { CreateCustomerDialogComponent } from './customer/dialogs/create-customer-dialog/create-customer-dialog.component';
-import { MatNativeDateModule } from '@angular/material/core';
+import { MatMomentDateModule, MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapter';
 
 @NgModule({
   declarations: [
@@ -52,7 +52,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     FlexLayoutModule,
     FormsModule,
     MatDatepickerModule,
-    MatNativeDateModule,
+    MatMomentDateModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -63,6 +63,12 @@ import { MatNativeDateModule } from '@angular/material/core';
   providers: [
     CustomerService,
     MatDatepickerModule,
+    {
+      provide: MAT_MOMENT_DATE_ADAPTER_OPTIONS,
+      useValue: {
+        strict: true
+      }
+    },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpErrorInterceptor,

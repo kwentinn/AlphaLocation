@@ -30,7 +30,7 @@ namespace AlphaLocation.Customers.App.Commands.CreateNewCustomer
 
         private static Birthdate GetBirthdate(CreateNewCustomerCommand command)
         {
-            return !command.Birthdate.HasValue ? Birthdate.From(command.Birthdate.Value) : null;
+            return command.Birthdate.HasValue ? Birthdate.From(command.Birthdate.Value) : null;
         }
     }
 }

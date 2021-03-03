@@ -5,14 +5,24 @@
       "firstname": "José",
       "lastname": "Dugrand",
       "gender": 0,
-      "birthdate": "1980-10-10T00:00:00"
+      "birthdate": "1980-10-10T00:00:00",
+      "comment": null
     },
     {
       "id": "1",
       "firstname": "Josette",
       "lastname": "Dugeneou",
       "gender": 0,
-      "birthdate": "1952-10-10T00:00:00"
+      "birthdate": "1952-10-10T00:00:00",
+      "comment": null
+    },
+    {
+      "id": "2",
+      "firstname": "ter",
+      "lastname": "trt",
+      "gender": 2,
+      "birthdate": "2021-06-06T00:00:00",
+      "comment": null
     }
   ]
 }
