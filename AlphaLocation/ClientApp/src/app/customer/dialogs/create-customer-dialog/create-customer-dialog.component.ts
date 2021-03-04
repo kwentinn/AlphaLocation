@@ -61,7 +61,7 @@ export class CreateCustomerDialogComponent implements OnInit {
     const momentDate = moment(date);
     return {
       year: momentDate.year(),
-      month: momentDate.month(),
+      month: momentDate.month() + 1,
       day: momentDate.day()
     };
   }

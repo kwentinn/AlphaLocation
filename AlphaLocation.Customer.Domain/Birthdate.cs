@@ -11,7 +11,7 @@ namespace AlphaLocation.Customers.Domain
             {
                 return null;
             }
-            return From(birthdate.Value);
+            return ValueOf<DateTime, Birthdate>.From(birthdate.Value);
         }
     }
 }
