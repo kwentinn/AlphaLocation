@@ -16,9 +16,8 @@ namespace AlphaLocation.Customers.App.Commands.CreateNewCustomer
 
         public override async Task HandleAsync(CreateNewCustomerCommand command)
         {
-            Customer customer = new Customer
+            Customer customer = Customer.Register 
             (
-                CustomerId.Unset,
                 command.Gender,
                 Name.From(command.Firstname),
                 Name.From(command.Lastname),

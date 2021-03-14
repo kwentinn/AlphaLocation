@@ -18,11 +18,8 @@ namespace AlphaLocation.Customers.Infra
 
         public async Task<Customer> GetByIdAsync(CustomerId customerId)
         {
-            CustomerEntity entity = this.store.Customers
-                .Find(c => c.Id == customerId.Value)
-                .Single();
-
-            return await Task.FromResult(new Customer
+            CustomerEntity entity = GetEntityById(customerId);
+            return await Task.FromResult(Customer.Rehydrate
             (
                 CustomerId.From(entity.Id),
                 entity.Gender,
@@ -31,6 +28,13 @@ namespace AlphaLocation.Customers.Infra
                 Birthdate.From(entity.Birthdate),
                 entity.Comment
             ));
+        }
+
+        private CustomerEntity GetEntityById(CustomerId customerId)
+        {
+            return this.store.Customers
+                .Find(c => c.Id == customerId.Value)
+                .Single();
         }
 
         public async Task SaveAsync(Customer customer)

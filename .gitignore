@@ -359,3 +359,4 @@ MigrationBackup/
 Footballista.Players/obj/
 
 .sonarqube/
+AlphaLocation/customers.json
