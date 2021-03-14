@@ -9,7 +9,7 @@ import { Customer } from '../models/customer.model';
 export class CustomersTableComponent implements OnInit {
 
 
-  displayedColumns: string[] = ['gender', 'firstname', 'lastname'];
+  displayedColumns: string[] = ['firstname', 'lastname'];
 
   @Input() customers: Customer[];
 
