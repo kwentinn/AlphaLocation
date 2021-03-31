@@ -17,9 +17,10 @@ namespace Microsoft.Extensions.DependencyInjection
 				.UseMemoryCachingProvider();
 
 			return services
-				.AddScoped<DocumentConfigurationFactory>()
+				.AddScoped<IDocumentConfiguration, FrenchDocumentConfiguration>()
 				.AddScoped<IDateFormatter, DateFormatter>()
 				.AddScoped<IAmountFormatter, AmountFormatter>()
+				.AddScoped<DocumentConfigurationFactory>()
 				.AddScoped<PdfService>()
 				.AddScoped<HtmlRenderingService>()
 				.AddScoped<DocumentService>()
