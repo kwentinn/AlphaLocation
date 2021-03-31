@@ -18,7 +18,7 @@ namespace AlphaLocation.Pdf.Api.Controllers
 			this.htmlRenderingService = htmlRenderingService;
 		}
 
-		[HttpGet]
+		[HttpPost]
 		public async Task<IActionResult> GenerateDocument([FromBody]RentalAgreement rentalAgreement)
 		{
 			return new FileContentResult
@@ -28,7 +28,7 @@ namespace AlphaLocation.Pdf.Api.Controllers
 			);
 		}
 
-		[HttpGet]
+		[HttpPost]
 		[Route("html")]
 		public async Task<IActionResult> GenerateHtmlDocument([FromBody]RentalAgreement rentalAgreement)
 		{
