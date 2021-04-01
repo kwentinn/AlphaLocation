@@ -50,8 +50,6 @@
         @*@{ await IncludeAsync("Templates/Shared/_Header.cshtml", Model); }*@
 
         <!-- main content -->
-
-
         <h1 class="title-case">Contrat de location saisonniere</h1>
 
         <h2>Entre les soussignés</h2>
@@ -188,27 +186,34 @@
         <br>
 
         <h2>Durée de la location</h2>
-        <p>La présente location est consentie et acceptée pour une durée de @GetNumberOfNights(Model) qui commence à courir le : @FormatDate(Model.Rental.Period.Start). En aucun cas elle ne pourra être prorogée, sauf accord préalable et écrit du bailleur.</p>
+        <p>La présente location est consentie et acceptée pour une durée de @GetNumberOfNights(Model) nuit(s) qui commence à courir le : @FormatDate(Model.Rental.Period.Start). En aucun cas elle ne pourra être prorogée, sauf accord préalable et écrit du bailleur.</p>
         <p>Pour la prise de possession des lieux et les formalités d’usage (état des lieux, inventaire, remise des clés, paiement des sommes prévues à cette date), il est d’ores et déjà convenu d’un rendez-vous le @GetArrivalDate(Model).</p>
         <br>
 
         <h2>Loyer / charges</h2>
-        <p>La présente location est consentie et acceptée moyennant @GetRentalAmount(Model), charges comprises, à l’exclusion de la taxe de séjour, d’un montant de @GetTaxeDeSejourPerNightAndPerPerson(Model) par personne majeure et par nuit, soit @GetTaxeDeSejourTotal(Model).</p>
+        <p>La présente location est consentie et acceptée moyennant la somme de @GetRentalAmount(Model), charges comprises, à l’exclusion de la taxe de séjour, d’un montant de @GetTaxeDeSejourPerNightAndPerPerson(Model) par personne majeure et par nuit, soit @GetTaxeDeSejourTotal(Model).</p>
         <br>
 
         @*<h2>Dépôt de garantie</h2>
-            <p>A titre de garantie et en cautionnement des dégâts qui pourraient être causés au local ou bien au mobilier et/ou aux objets garnissant les lieux, le locataire versera, le jour de l’entrée dans les lieux, la somme de : HUIT CENTS EUROS.</p>
-            <p>Cette somme, non productive d’intérêts, sera restituée dès la preuve faite par le locataire que :</p>
-            <ul>
-                <li>l’ensemble des consommations qu’il devait acquitter et dont la liste figure au paragraphe précédent a bien été intégralement acquitté ;</li>
-                <li>aucun meuble, objet ou linge n’est absent, dégradé ni sali, ou bien, si tel est le cas, sa remise en état ou son remplacement par l’identique est convenu avec le bailleur qui l’a accepté ;</li>
-                <li>les lieux n’ont subi aucune dégradation et sont remis en état propre (placards, poubelles et réfrigérateurs vides de déchets, sanitaires, appareils électroménagers, vaisselle, etc ...).</li>
-            </ul>
-            <p>Si ce cautionnement s’avérait insuffisant, le locataire s’engage d’ores et déjà à en parfaire la somme.</p>
-            <br>*@
+        <p>A titre de garantie et en cautionnement des dégâts qui pourraient être causés au local ou bien au mobilier et/ou aux objets garnissant les lieux, le locataire versera, le jour de l’entrée dans les lieux, la somme de : HUIT CENTS EUROS.</p>
+        <p>Cette somme, non productive d’intérêts, sera restituée dès la preuve faite par le locataire que :</p>
+        <ul>
+            <li>l’ensemble des consommations qu’il devait acquitter et dont la liste figure au paragraphe précédent a bien été intégralement acquitté ;</li>
+            <li>aucun meuble, objet ou linge n’est absent, dégradé ni sali, ou bien, si tel est le cas, sa remise en état ou son remplacement par l’identique est convenu avec le bailleur qui l’a accepté ;</li>
+            <li>les lieux n’ont subi aucune dégradation et sont remis en état propre (placards, poubelles et réfrigérateurs vides de déchets, sanitaires, appareils électroménagers, vaisselle, etc ...).</li>
+        </ul>
+        <p>Si ce cautionnement s’avérait insuffisant, le locataire s’engage d’ores et déjà à en parfaire la somme.</p>
+        <br>*@
 
         <h2>Echéancier de paiement</h2>
-        <p>Le jour de la signature des présentes, il est versé par le locataire la somme de 90 euros constituant des arrhes et venant en déduction de la somme totale à payer.</p>
+        <p>Le jour de la signature des présentes, il est versé par le locataire @GetRentalAmount(Model) correspondant au loyer à payer.</p>
+        <p>Le jour de la prise de possession des lieux, le locataire s’oblige à verser, en complément du loyer : </p>
+        <ul>
+            <li>Taxe de séjour : @GetTaxeDeSejourTotal(Model).</li>
+        </ul>
+
+        @*<h2>Echéancier de paiement</h2>
+        <p>Le jour de la signature des présentes, il est versé par le locataire la somme de @GetRentalAmount(Model) constituant des arrhes et venant en déduction de la somme totale à payer.</p>
         <p>Le jour de la prise de possession des lieux, le locataire s’oblige à verser, en complément des arrhes : </p>
         <ul>
             <li>Dépôt de garantie, soit la somme de 800 euros (non encaissée) </li>
@@ -220,11 +225,12 @@
             <li>Un état des lieux dressé lors de la remise des clés</li>
             <li>Un inventaire des meubles</li>
         </ul>
-        <br>
+        <br>*@
 
         <h2>Nettoyage après séjour</h2>
-        <p>Vous êtes engagés à remettre la location en état propre et rangé à la fin de votre séjour.</p>
+        <p>Le locataire s'engage à remettre la location en état propre et rangé à la fin du séjour.</p>
         <br>
+
         <p>Election de domicile</p>
         <p>Pour l'exécution des présentes et de leur suite, le bailleur fait élection de domicile en sa demeure et le locataire dans les lieux loués.</p>
         <p>Fait à MONTPELLIER, le @FormatDate(Model.GenerationDate), en 2 originaux dont un remis au(x) locataire(s).</p>
